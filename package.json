@@ -1,0 +1,25 @@
+{
+  "name": "cloudflare-status-template",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "wrangler types && tsc",
+    "deploy": "wrangler deploy",
+    "db:migrate:local": "wrangler d1 migrations apply --local cloudflare-status-template",
+    "db:migrate:production": "wrangler d1 migrations apply cloudflare-status-template",
+    "db:insights": "wrangler d1 insights cloudflare-status-template",
+    "dev": "wrangler dev",
+    "postinstall": "wrangler types",
+    "start": "npm run dev",
+    "tail": "wrangler tail"
+  },
+  "dependencies": {
+    "d1-sql-tag": "^0.5.0",
+    "hono": "^4.8.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.7",
+    "typescript": "^5.8.3",
+    "wrangler": "^4.22.0"
+  }
+}
